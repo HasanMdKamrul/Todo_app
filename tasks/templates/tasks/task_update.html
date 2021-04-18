@@ -1,0 +1,9 @@
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit">Update</button>
+    </form>
+</div>
+
+<a href="{% url 'tasks:task-delete' task.pk %}">Delete</a>

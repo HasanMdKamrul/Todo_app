@@ -21,6 +21,26 @@ class TaskCreateView(generic.CreateView):
 
     def get_success_url(self):
         return reverse("tasks:task-list")
+
+
+class TaskUpdateView(generic.UpdateView):
+    model = Task
+    template_name = "tasks/task_update.html"
+    form_class = TaskModelForm
+    context_object_name = "task"
+
+
+    def get_success_url(self):
+        return reverse("tasks:task-list")
+
+
+class TaskDeleteView(generic.DeleteView):
+    model = Task
+    template_name = "tasks/task_delete.html"
+    context_object_name = "task"
+
+    def get_success_url(self):
+        return reverse("tasks:task-list")
     
 
 

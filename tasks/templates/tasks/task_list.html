@@ -1,8 +1,16 @@
-
+<a href="{% url 'tasks:task-create'%}">To add a new task</a>
 <h1>List of tasks:</h1>
-
 {% for task in tasks %}
 <div>
-    {{task}}
+    <a class="hover:text-blue-500" href="{% url 'tasks:task-update' task.pk %}"> 
+        
+        {% if task.complete %}
+        <strike>{{task}}</strike>
+        {% else %}
+        <span>{{task}}</span>
+        {% endif %}
+            
+    </a>
 </div>  
 {% endfor %}
+
